@@ -1,1 +1,2 @@
 # EXERCICIO_BD
+EXERCICIO de Base de Dados Animais (DELETE, ALTER, UPDATE E DROP)
