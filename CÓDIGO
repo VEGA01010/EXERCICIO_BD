@@ -1,0 +1,112 @@
+CREATE table  Animais (
+	id int,
+  	nome varchar(50),
+  	nasc date,
+  	peso decimal(10,2),
+  	cor varchar(50)
+);
+
+INSERT INTO Animais (id, nome, nasc, peso, cor) 
+VALUES 
+(1, 'Ágata', '2015-04-09', 13, 'branco'),
+(2, 'Félix', '2016-06-06', 14, 'preto'),
+(3, 'Tom', '2013-02-08', 11, 'azul'),
+(4, 'Garfield', '2015-07-06', 17, 'laranja'),
+(5, 'Frajola', '2013-08-01', 13, 'preto'),
+(6, 'Manda-chuva', '2012-02-03', 12, 'amarelo'),
+(7, 'Snowball', '2014-04-06', 13, 'preto'),
+(8, 'Ágata', '2015-08-03', 11, 'azul'),
+(9, 'Gato de Botas', '2012-12-10', 11, 'amarelo'),
+(10, 'Kitty', '2020-04-06', 11, 'amarelo'),
+(11, 'Milu', '2013-02-04', 17, 'branco'),
+(12, 'Pluto', '2012-01-03', 12, 'amarelo'),
+(13, 'Pateta', '2015-05-01', 17, 'preto'),
+(14, 'Snoopy', '2013-07-02', 18, 'branco'),
+(15, 'Rex', '2019-11-03', 19, 'beje'),
+(16, 'Bidu', '2012-09-08', 12, 'azul'),
+(17, 'Dum Dum', '2015-04-06', 11, 'laranja'),
+(18, 'Muttley', '2011-02-03', 14, 'laranja'),
+(19, 'Scooby', '2012-01-02', 19, 'marrom'),
+(20, 'Rufus', '2014-04-05', 19, 'branco');
+
+SELECT * from Animais
+
+SELECT * from Animais WHERE peso <13.1
+
+SELECT * FROM Animais WHERE nasc BETWEEN '2015-02-01' AND '2015-12-31';
+
+SELECT * FROM Animais WHERE cor = 'branco' AND peso < 15.0;
+
+SELECT nome, cor, peso FROM Animais WHERE nome LIKE 'B%';
+
+SELECT nome, cor, peso FROM Animais wHERE cor IN ('vermelha', 'amarela', 'marrom', 'laranja');
+
+SELECT nome, cor, nasc, peso FROM Animais ORDER BY nasc ASC;
+
+SELECT * FROM Animais WHERE nome LIKE 'C%' AND cor != 'branco';
+
+SELECT * FROM Animais WHERE nome LIKE '%ba%';
+
+SELECT * FROM Animais WHERE peso BETWEEN 13.0 AND 15.0;
+
+SELECT * FROM Animais WHERE peso <= 30 AND (cor = 'amarelo' OR cor = 'roxo') AND nasc > '2012-01-01';
+
+SELECT * FROM Animais WHERE (nasc BETWEEN '2013-12-22' AND '2014-01-19')
+    OR (nasc BETWEEN '2014-12-22' AND '2015-01-19')
+    OR (nasc BETWEEN '2015-12-22' AND '2016-01-19')
+    OR (nasc BETWEEN '2016-12-22' AND '2017-01-19')
+    OR (nasc BETWEEN '2017-12-22' AND '2018-01-19')
+    OR (nasc BETWEEN '2018-12-22' AND '2019-01-19')
+    OR (nasc BETWEEN '2019-12-22' AND '2020-01-19')
+    OR (nasc BETWEEN '2020-12-22' AND '2021-01-19')
+    OR (nasc BETWEEN '2021-12-22' AND '2022-01-19');
+
+SELECT * FROM Animais WHERE INSTR(nome, ' ') > 0;
+
+
+
+
+
+Alterar o nome do Pateta para Goofy:
+UPDATE Animais SET nome = 'Goofy' WHERE nome = 'Pateta';
+
+Alterar o peso do Garfield para 10 quilogramas:
+UPDATE Animais SET peso = 10 WHERE nome = 'Garfield';
+
+Alterar a cor de todos os gatos para laranja:
+UPDATE Animais SET cor = 'laranja' WHERE nome LIKE '%Gato%';
+
+Criar um campo altura para os animais:
+ALTER TABLE Animais ADD altura decimal(10,2);
+
+Criar um campo observação para os animais:
+ALTER TABLE Animais ADD observacao varchar(100);
+
+Remover todos os animais que pesam mais que 200 quilogramas:
+DELETE FROM Animais WHERE peso > 200;
+
+Remover todos os animais que o nome inicie com a letra ‘C’:
+DELETE FROM Animais WHERE nome LIKE 'C%';
+
+Remover o campo cor dos animais:
+ALTER TABLE Animais DROP COLUMN cor;
+
+Aumentar o tamanho do campo nome dos animais para 80 caracteres:
+ALTER TABLE Animais MODIFY COLUMN nome VARCHAR(80);
+
+Remover todos os gatos e cachorros:
+DELETE FROM Animais WHERE nome LIKE '%Gato%' OR nome LIKE '%Cachorro%';
+
+Remover o campo data de nascimento dos animais:
+ALTER TABLE Animais DROP COLUMN nasc;
+
+Remover todos os animais:
+DELETE FROM Animais;
+
+Remover a tabela especies:
+DROP TABLE Animais;
+
+
+
+
+
